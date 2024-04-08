@@ -1,1 +1,1 @@
-pip install pymango # install the package
+pip install pymongo # install the package
