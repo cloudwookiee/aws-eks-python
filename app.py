@@ -6,7 +6,7 @@ app = Flask(__name__)
 api = Api(app)
 
 # Your MongoDB connection string
-CONNECTION_STRING = "mongodb://your_username:your_password@your_host:your_port/your_database_name"
+CONNECTION_STRING = "mongodb://myAdminUser:test123@172.31.16.4:27017/pythonappdb"
 
 client = pymongo.MongoClient(CONNECTION_STRING)
 db = client['your_database_name']  # Select the database 
