@@ -1,1 +1,1 @@
-pip install pymongo # install the package
+pymongo # install the package
