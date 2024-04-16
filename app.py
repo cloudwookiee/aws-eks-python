@@ -4,7 +4,7 @@ import pymongo
 app = Flask(__name__)
 
 # Create a MongoDB client, connect to MongoDB server (replace the URI with your own)
-client = pymongo.MongoClient("mongodb://ec2-44-202-226-165.compute-1.amazonaws.com:27017/")
+client = pymongo.MongoClient("mongodb://myAdminUser:test123@ec2-44-202-226-165.compute-1.amazonaws.com:27017/")
 
 # Connect to a specific database (replace 'mydatabase' with your database name)
 db = client["pythonappdb"]
