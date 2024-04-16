@@ -1,17 +1,16 @@
 from flask import Flask, render_template, request
 import pymongo
 
-# ... (rest of your imports) 
+app = Flask(__name__)
 
-# MongoDB Connection 
-try:
-    client = pymongo.MongoClient("mongodb://ec2-44-202-226-165.compute-1.amazonaws.com:27017/")  # Replace with your connection string 
-    db = client["pythonappdb"] 
-    collection = db["user_data"]
-except pymongo.errors.ConnectionFailure as e:
-    print("Could not connect to MongoDB: %s" % e)
+# Create a MongoDB client, connect to MongoDB server (replace the URI with your own)
+client = pymongo.MongoClient("mongodb://ec2-44-202-226-165.compute-1.amazonaws.com:27017/")
 
-# ... (your route definition)
+# Connect to a specific database (replace 'mydatabase' with your database name)
+db = client["pythonappdb"]
+
+# Connect to a specific collection in the database (replace 'mycollection' with your collection name)
+collection = db["user_info"]
 
 @app.route("/", methods=['GET', 'POST'])
 def where_are_you_from():
@@ -33,9 +32,6 @@ def where_are_you_from():
 
     else:
         return render_template('index.html')
-
-from flask import Flask, render_template, request
-import pymongo
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=80)  # Listen on port 80
