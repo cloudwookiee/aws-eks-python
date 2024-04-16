@@ -1,23 +1,12 @@
-# Select a base Python image 
-FROM python:3.9-slim  
+FROM python:3.9-slim
 
-# Set the working directory within the image
 WORKDIR /app
 
-# Copy your project's dependencies file (if you have one)
-COPY requirements.txt requirements.txt
-
-# Copy the wiz file to the working directory
-COPY wizexercise.txt wizexercise.txt
-
-# Install the dependencies
+COPY requirements.txt ./
 RUN pip install -r requirements.txt
 
-# Copy your application code into the working directory
-COPY . . 
+COPY . ./  # Copies all other project files, including wizexercise.txt
 
-# Expose the port your Flask app will listen on
-EXPOSE 8080 
+EXPOSE 80 8080 # Port used by Flask's development server
 
-# Define the command to run your app 
-CMD ["python", "app.py"]  
+CMD ["python", "app.py"]
